@@ -36,7 +36,7 @@ final class Admin
             'manage_options',
             self::SETTINGS_SLUG,
             [$this, 'renderSettings'],
-            'dashicons-whatsapp',
+            'dashicons-format-chat',
             27
         );
 
