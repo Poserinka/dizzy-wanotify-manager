@@ -22,6 +22,7 @@ define('DIZZY_WANOTIFY_URL', plugin_dir_url(__FILE__));
 require_once DIZZY_WANOTIFY_PATH . 'includes/Settings.php';
 require_once DIZZY_WANOTIFY_PATH . 'includes/WhatsAppClient.php';
 require_once DIZZY_WANOTIFY_PATH . 'includes/Admin.php';
+require_once DIZZY_WANOTIFY_PATH . 'includes/GitHubUpdater.php';
 
 add_action('init', static function (): void {
     load_plugin_textdomain(
@@ -39,3 +40,10 @@ add_action('plugins_loaded', static function (): void {
         (new \Dizzy\WAnotify\Admin($settings, $client))->register();
     }
 });
+
+(new \Dizzy\WAnotify\GitHubUpdater(
+    __FILE__,
+    'dizzy-wanotify-manager',
+    'Poserinka/dizzy-wanotify-manager',
+    DIZZY_WANOTIFY_VERSION
+))->register();
