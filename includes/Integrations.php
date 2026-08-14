@@ -98,7 +98,10 @@ final class Integrations
              FROM {$table} s
              INNER JOIN {$wpdb->users} u ON u.ID=s.employee_id
              WHERE s.status='published'
-             AND TIMESTAMP(s.shift_date,s.start_time) BETWEEN %s AND %s",
+             AND TIMESTAMP(
+                 DATE_ADD(s.shift_date, INTERVAL IF(s.start_time <= '02:00:00',1,0) DAY),
+                 s.start_time
+             ) BETWEEN %s AND %s",
             $from->format('Y-m-d H:i:s'),
             $to->format('Y-m-d H:i:s')
         ), ARRAY_A) ?: [];
