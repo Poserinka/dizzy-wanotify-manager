@@ -2,7 +2,7 @@
 
 WhatsApp Cloud API notifications for the Dizzy WordPress plugin suite.
 
-## Version 1.0.0
+## Version 1.1.0
 
 The first working foundation includes:
 
@@ -13,6 +13,11 @@ The first working foundation includes:
 - Independent enable/disable controls for every notification.
 - Meta template name, language, preview text and supported smart tags.
 - A reusable WhatsApp template-message sender.
+- Automatic ticket notification hook after confirmed payment.
+- Automatic reservation notification after a confirmed reservation is created.
+- Five-minute shift reminder queue that sends approximately two hours before a shift.
+- A WhatsApp phone field on WordPress user profiles.
+- Duplicate shift reminder protection and automatic retry after failed sends.
 - Optional secure access token configuration through the `DIZZY_WANOTIFY_ACCESS_TOKEN` constant.
 - GitHub Releases update integration.
 
@@ -26,11 +31,11 @@ define('DIZZY_WANOTIFY_ACCESS_TOKEN', 'your-permanent-system-user-token');
 
 When this constant exists, the token field in WordPress is disabled.
 
-## Planned integration layer
+## Integration requirements
 
-- Dizzy Ticket Manager: send after confirmed payment.
-- Dizzy Reservations Manager: send after reservation creation or confirmation.
-- Dizzy Schedule Manager: queue a reminder two hours before a shift.
+- Dizzy Ticket Manager 1.7.3+
+- Dizzy Reservations Manager 3.8.1+
+- Dizzy Schedule Manager 2.2.0+
 
 ## Requirements
 
